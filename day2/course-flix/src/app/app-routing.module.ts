@@ -5,40 +5,57 @@ import { TemplateDrivenComponent } from './forms/template-driven/template-driven
 import { ModelDrivenComponent } from './forms/model-driven/model-driven.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { FormsComponent } from './forms/forms.component';
+import { CourseDetailsComponent } from './course-details/course-details.component';
+import { AuthService } from './auth.service';
+import { CustomDirectiveComponent } from './custom-directive/custom-directive.component';
+import { CompOneComponent } from './comp-one/comp-one.component';
 
 
 const routes: Routes = [
   {
-    path:'',
-    redirectTo:'courses',
-    pathMatch:'full'
+    path: '',
+    redirectTo: 'courses',
+    pathMatch: 'full'
   },
   {
-    path:'courses',
-    component:CoursesComponent
+    path: 'courses',
+    component: CoursesComponent
   },
   {
-    path:'forms',
-    component:FormsComponent,
-    children:[
+    path: 'courses/:id',
+    component: CourseDetailsComponent,
+    canActivate: [AuthService]
+  },
+  {
+    path: 'admin',
+    loadChildren: './admin/admin.module#AdminModule'
+  },
+  {
+    path: 'custom',
+    component: CustomDirectiveComponent
+  },
+  {
+    path: 'forms',
+    component: FormsComponent,
+    children: [
       {
-        path:'',
-        redirectTo:'template',
-        pathMatch:'full'
+        path: '',
+        redirectTo: 'template',
+        pathMatch: 'full'
       },
       {
-        path:'model',
-        component:ModelDrivenComponent
+        path: 'model',
+        component: ModelDrivenComponent
       },
       {
-        path:'template',
-        component:TemplateDrivenComponent
+        path: 'template',
+        component: TemplateDrivenComponent
       },
     ]
   },
   {
-    path:'**',
-    component:NotFoundComponent
+    path: '**',
+    component: NotFoundComponent
   }
 ];
 

@@ -20,6 +20,10 @@ import { ModelDrivenComponent } from './forms/model-driven/model-driven.componen
 import { NotFoundComponent } from './not-found/not-found.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FormsComponent } from './forms/forms.component';
+import { CourseDetailsComponent } from './course-details/course-details.component';
+import { PhoneFormatDirective } from './phone-format.directive';
+import { CustomDirectiveComponent } from './custom-directive/custom-directive.component';
+import { AdminModule } from './admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -40,7 +44,11 @@ import { FormsComponent } from './forms/forms.component';
     ModelDrivenComponent,
     NotFoundComponent,
     NavbarComponent,
-    FormsComponent
+    FormsComponent,
+    CourseDetailsComponent,
+    PhoneFormatDirective,
+    CustomDirectiveComponent
+    
   ],
   imports: [
     BrowserModule,

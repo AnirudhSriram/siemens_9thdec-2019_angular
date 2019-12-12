@@ -4,6 +4,10 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class CourseService {
+  getCourseDetails(courseId:any): any {
+    console.log("HERE I AM",typeof(courseId));
+    return this.courses.filter(course => course.id == courseId);
+  }
   
   
   courses; 
