@@ -18,6 +18,8 @@ import { ViewchildComponent } from './viewchild/viewchild.component';
 import { TemplateDrivenComponent } from './forms/template-driven/template-driven.component';
 import { ModelDrivenComponent } from './forms/model-driven/model-driven.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FormsComponent } from './forms/forms.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
     ViewchildComponent,
     TemplateDrivenComponent,
     ModelDrivenComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    NavbarComponent,
+    FormsComponent
   ],
   imports: [
     BrowserModule,
