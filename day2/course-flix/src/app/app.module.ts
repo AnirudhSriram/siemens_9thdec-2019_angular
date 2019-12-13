@@ -22,7 +22,6 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FormsComponent } from './forms/forms.component';
 import { CourseDetailsComponent } from './course-details/course-details.component';
 import { DeactivateComponent } from './deactivate/deactivate.component';
-import { PhoneFormatDirective } from './phone-format.directive';
 import { CustomDirectiveComponent } from './custom-directive/custom-directive.component';
 import { RatingComponent } from './rating/rating.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -37,7 +36,6 @@ import { ErrorInterceptor } from './ErrorInterceptor';
     ChildComponent,
     TemplateComponent,
     TwoWayComponent,
-    NameFormatPipe,
     SortPipe,
     FilterUsersPipe,
     CoursesComponent,
@@ -51,10 +49,10 @@ import { ErrorInterceptor } from './ErrorInterceptor';
     NavbarComponent,
     FormsComponent,
     CourseDetailsComponent,
-    PhoneFormatDirective,
     CustomDirectiveComponent,
     RatingComponent,
-    LoginComponent
+    LoginComponent,
+    NameFormatPipe
   ],
   imports: [
     BrowserModule,
