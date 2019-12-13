@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CourseService } from 'src/app/services/course.service';
-import { Router } from '@angular/router';
-import { Course } from 'src/app/models/Course';
+import {Router } from '@angular/router';
+import { Course } from 'src/app/model/Course';
+
+
 
 @Component({
   selector: 'app-template-driven',
@@ -14,12 +16,15 @@ export class TemplateDrivenComponent implements OnInit {
   constructor(private courseService:CourseService, private router:Router) { }
 
   ngOnInit() {
+
   }
 
   submitCourse({coursename, price}){
-    this.course.name = coursename;
-    this.course.price = price;
-    this.courseService.addCourse(this.course);
-    this.router.navigate(['courses/1']);
+    const course:any={};
+    course.name = coursename;
+    course.price = price;
+    this.courseService.addCourse(course).subscribe(data => console.log(data));
+    console.log('came inside the submit course of template driven forms ...')
+    this.router.navigate(['']);
   }
 }
