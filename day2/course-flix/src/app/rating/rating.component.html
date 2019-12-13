@@ -1,2 +1,4 @@
-<i class="fa fa-star" *ngFor="let item of ratingInStars"></i>
-<i class="fa fa-star-half-o" aria-hidden="true" *ngIf="fractionAvailable"></i>
+<span *ngFor="let start of stars">
+    <i class="fa fa-star"></i>
+</span>
+<i *ngIf="isFractionPresent" class="fa fa-star-half"></i>

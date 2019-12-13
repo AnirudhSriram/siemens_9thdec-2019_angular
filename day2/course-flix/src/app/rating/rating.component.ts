@@ -6,26 +6,18 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./rating.component.css']
 })
 export class RatingComponent implements OnInit {
-  tempRating: number;
-  fractionPresent: boolean;
-  fractionAvailable: boolean;
+
+  @Input("value") ratings;
+  stars: any[];
+  isFractionPresent: boolean;
 
   constructor() { }
 
   ngOnInit() {
-    console.log("here we are",this.rating);
-    this.convertRatingToStars();
+    const wholeNumber = Math.floor(this.ratings);
+    this.stars = new Array(wholeNumber);
+    this.isFractionPresent = this.ratings - wholeNumber !== 0;
+    
   }
-  @Input() rating;
-  ratingInStars:number[] = [] ;
-  convertRatingToStars = () => {
-    console.log("inside")
-    this.tempRating = this.rating;
-    for(let i=0;i<Math.floor(this.tempRating);i++){
-      this.ratingInStars.push(1);
-    }
-    this.fractionAvailable = (this.tempRating - Math.floor(this.tempRating))>0?true:false;
 
-  }
-  
 }

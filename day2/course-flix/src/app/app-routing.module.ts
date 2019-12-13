@@ -7,8 +7,10 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { FormsComponent } from './forms/forms.component';
 import { CourseDetailsComponent } from './course-details/course-details.component';
 import { AuthService } from './auth.service';
+import { DeactivateComponent } from './deactivate/deactivate.component';
 import { CustomDirectiveComponent } from './custom-directive/custom-directive.component';
-import { CompOneComponent } from './comp-one/comp-one.component';
+import { CompOneComponent } from './admin/comp-one/comp-one.component';
+import { LoginComponent } from './login/login.component';
 
 
 const routes: Routes = [
@@ -18,8 +20,15 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'courses',
-    component: CoursesComponent
+    path:'courses',
+    component:CoursesComponent,
+    canActivate:[AuthService]
+  },
+  {
+    path:'courses/:id',
+    component:CourseDetailsComponent,
+    canActivate:[AuthService]
+
   },
   {
     path: 'courses/:id',
@@ -48,14 +57,27 @@ const routes: Routes = [
         component: ModelDrivenComponent
       },
       {
-        path: 'template',
-        component: TemplateDrivenComponent
+        path:'template',
+        component:TemplateDrivenComponent,
+        canDeactivate:[DeactivateComponent]
       },
     ]
   },
   {
-    path: '**',
-    component: NotFoundComponent
+    path:'custom-directive',
+    component:CustomDirectiveComponent
+  },
+  {
+    path:'admin',
+    loadChildren:'./admin/admin.module#AdminModule'
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path:'**',
+    component:NotFoundComponent
   }
 ];
 

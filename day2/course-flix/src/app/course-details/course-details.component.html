@@ -1,8 +1,4 @@
-<div class="card" style="width: 18rem;">
-        <img src="" class="card-img-top" [alt]="courseDetails.name">
-        <div class="card-body">
-          <h5 class="card-title">CourseName: {{courseDetails.name | uppercase}}</h5>
-          <p class="card-text">Price: {{courseDetails.price | currency:'INR':true}}</p>
-          <a [routerLink]="['/courses', courseDetails.id]" routerLinkActive="router-link-active"  class="btn btn-primary">Details</a>
-        </div>
-      </div>
+<div class="container">
+<h1>Description</h1>
+<p>{{courseDetails?.name}}</p>
+</div>
